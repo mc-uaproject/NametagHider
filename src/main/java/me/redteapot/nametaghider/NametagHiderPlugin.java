@@ -53,7 +53,7 @@ public class NametagHiderPlugin extends JavaPlugin implements Listener {
     @SuppressWarnings("unused")
     @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent evt) {
-        if(evt.getRightClicked() instanceof Player) {
+        if(evt.getRightClicked() instanceof Player && evt.getPlayer().isSneaking()) {
             final Player target = (Player) evt.getRightClicked();
             final Player source = evt.getPlayer();
             final String message = getConfig().getString("nicknameFormat")
